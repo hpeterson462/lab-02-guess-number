@@ -1,22 +1,44 @@
 // import functions and grab DOM elements
+import { compareNumbers } from './utilis.js';
+
 const quizButton = document.getElementById('quiz-button');
 
 const userGuessSpan = document.getElementById('user-guess');
+
+const userResult = document.getElementById('user-result');
+
+const userNumber = document.getElementById('input');
+
 // initialize state
-let userGuess = 0;
 let randomNumber = Math.ceil(Math.random() * 20);
 console.log(randomNumber);
+
+let userCount = 4;
+
+let userInput = Number(userNumber.value);
 // set event listeners to update state and DOM
 quizButton.addEventListener('click', () => {
     console.log('math');
 
-    const guess1 = prompt('Guess a number between 1 & 20.');
+    const confirm = prompt('Guess a number between 1 & 20.');
 
-    if (randomNumber < userGuess) {
-        return 'Too high, guess again.'
-    } else if (randomNumber > userGuess) {
-        return 'Too low, guess again.'
+    if (confirm === false) {
+        return;
+    }
+
+    if (compareNumbers(userInput, randomNumber) === 0) {
+        userResult.textContent = 'You win!';
+    } else if (compareNumbers(userInput, randomNumber) === -1) {
+        userResult.textContent = 'Too low.';
+    } else if (compareNumbers(userInput, randomNumber) === 1) {
+        userResult.textContent = 'Too high.';
     } else {
-        return 'Congrats! That\'s the number!';
+        alert('Not a number.');
+    }
+
+    userGuessSpan.textContent = userCount--;
+
+    if (userCount === 0) {
+        return;
     }
 });

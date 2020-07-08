@@ -13,7 +13,6 @@ console.log(randomNumber);
 
 let userCount = 4;
 
-
 // set event listeners to update state and DOM
 quizButton.addEventListener('click', () => {
 
@@ -42,6 +41,7 @@ quizButton.addEventListener('click', () => {
     if (userCount === -1) {
         return document.getElementById('user-result').textContent = 'Sorry, you lost.';
     }
+
 
 });
 

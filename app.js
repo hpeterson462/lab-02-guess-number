@@ -7,20 +7,22 @@ const userGuessSpan = document.getElementById('user-guess');
 
 const userResult = document.getElementById('user-result');
 
-const userNumber = document.getElementById('input');
-
 // initialize state
 let randomNumber = Math.ceil(Math.random() * 20);
 console.log(randomNumber);
 
 let userCount = 4;
 
-let userInput = Number(userNumber.value);
+
 // set event listeners to update state and DOM
 quizButton.addEventListener('click', () => {
     console.log('math');
 
-    const confirm = prompt('Guess a number between 1 & 20.');
+    if (userCount === -1) {
+        return document.getElementById("user-result").textContent = 'End of Game.';
+    }
+
+    const userInput = Number(prompt('Guess a number between 1 & 20.'));
 
     if (confirm === false) {
         return;
@@ -29,16 +31,16 @@ quizButton.addEventListener('click', () => {
     if (compareNumbers(userInput, randomNumber) === 0) {
         userResult.textContent = 'You win!';
     } else if (compareNumbers(userInput, randomNumber) === -1) {
-        userResult.textContent = 'Too low.';
+        userResult.textContent = 'Too low';
     } else if (compareNumbers(userInput, randomNumber) === 1) {
-        userResult.textContent = 'Too high.';
+        userResult.textContent = 'Too high';
     } else {
         alert('Not a number.');
     }
 
     userGuessSpan.textContent = userCount--;
-
-    if (userCount === 0) {
-        return;
+    if (userCount === -1) {
+        return document.getElementById('quiz-button').textContent = 'Play again?';
     }
+
 });

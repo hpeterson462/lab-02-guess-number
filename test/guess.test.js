@@ -1,6 +1,6 @@
 // IMPORT MODULES under test here:
 // import example from '../example.js';
-import { compareNumbers } from '../utilis.js';
+import { compareNumbers } from '../guess.js';
 
 const test = QUnit.test;
 

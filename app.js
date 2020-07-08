@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { compareNumbers } from './utilis.js';
+import { compareNumbers } from './guess.js';
 
 const quizButton = document.getElementById('quiz-button');
 
@@ -34,7 +34,7 @@ quizButton.addEventListener('click', () => {
     } else if (compareNumbers(userInput, randomNumber) === 1) {
         userResult.textContent = 'Too high';
     } else {
-        alert('Not a number. Try again.');
+        alert('This isn\'t a number. Try again.');
     }
 
     userGuessSpan.textContent = userCount--;
@@ -42,4 +42,5 @@ quizButton.addEventListener('click', () => {
     if (userCount === -1) {
         return document.getElementById('user-result').textContent = 'Sorry, you lost.';
     }
+    return document.getElementById('quiz-button').textContent = 'Play again?';
 });

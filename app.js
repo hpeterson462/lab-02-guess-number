@@ -23,7 +23,7 @@ quizButton.addEventListener('click', () => {
 
     const userInput = Number(prompt('Guess a number between 1 & 20.'));
 
-    if (confirm === false) {
+    if (userInput === false) {
         return;
     }
 
@@ -42,5 +42,6 @@ quizButton.addEventListener('click', () => {
     if (userCount === -1) {
         return document.getElementById('user-result').textContent = 'Sorry, you lost.';
     }
-    return document.getElementById('quiz-button').textContent = 'Play again?';
+
 });
+

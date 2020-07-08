@@ -53,6 +53,16 @@ button:hover {
     background-color: var(--color4);
 }
 
+.em-text{
+    color: var(--color1);
+    font-weight: bold;
+}
+
+#user-guess{
+    color: var(--color1);
+    font-weight: bold;
+}
+
 footer {
     display: flex;
     justify-content: flex-end;
